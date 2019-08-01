@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+
+    <!-- Tree View of Scholar-->
+    <record id="scholar_tree_view" model="ir.ui.view">
+		<field name="name">scholar_tree_view</field>
+		<field name="model">scholar</field>
+		<field name="arch" type="xml">
+			<tree string="Header" >
+				<field name="name"/>
+				<field name="cell"/>
+				<field name="address"/>
+				<field name="gender"/>
+				
+				
+				
+			</tree>
+		</field>
+	</record>
+  
+    <!-- Form View Of Scholar  -->
+    <record id="scholar_form_view" model="ir.ui.view">
+        <field name="name">scholar.form.view</field>
+        <field name="model">scholar</field>
+        <field name="arch" type="xml">
+            <form>
+            	<sheet>
+		             <group col="4">
+		                <field name="name" placeholder="Ex name : Turki"/>
+		                
+				        <field name="cell" placeholder="Ex cell : 03xxxxxxxx"/>
+				        <field name="address"/>
+				        <field name="gender"/>
+				        <field name="post"/>
+		                
+		             </group>
+		             <group>
+		             	<group>
+		             		<field name="scholar_id" widget="many2many_checkboxes" />
+		             	</group>
+		             </group>
+	             </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!--   Define custom action -->
+
+    <record id="custom_action" model="ir.actions.act_window">
+        <field name="name">Child Menu</field>
+        <field name="res_model">scholar</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="oe_view_nocontent_create">
+                Click here to create new item !
+            </p>
+        </field>
+    </record>
+    
+    <!--   Parent Menu  -->
+    <menuitem name="scholar App" id="scholar_root" sequence="1"/>
+    
+    <!--   Child Menu  -->
+    <menuitem name="scholar" id="custom_sub_menu" action="custom_action" parent="scholar_root" sequence="2"/>
+
+</odoo>

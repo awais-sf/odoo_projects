@@ -1,0 +1,58 @@
+<odoo>
+
+	<!-- Tree View of Category-->
+	<record id="posts_tree_view" model="ir.ui.view">
+		<field name="name">posts_tree_view</field>
+		<field name="model">posts</field>
+		<field name="arch" type="xml">
+			<tree string="Header" >
+				<field name="category"/>
+				<field name="date"/>
+				<field name="city"/>
+				<field name="scholars"/>
+				
+				
+			</tree>
+		</field>
+	</record>
+ 
+	<!-- Form View Of Category-->
+    <record id="posts_form_view" model="ir.ui.view">
+        <field name="name">posts.form.view</field>
+        <field name="model">posts</field>
+        <field name="arch" type="xml">
+            <form>
+            	<sheet>
+	             <group col="4">
+	                <field name="category" />
+	                <field name="date"/>
+	                <field name="city"/>
+	                <field name="scholars" widget='many2many_tags'/>
+	                
+	                
+	             </group>
+	             </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!--   Define custom action -->
+
+    <record id="action_custom_posts" model="ir.actions.act_window">
+        <field name="name">posts</field>
+        <field name="res_model">posts</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="category_tree_view">
+                Click here to create new item !
+            </p>
+        </field>
+    </record>
+ <menuitem name="scholar App" id="scholar_root" sequence="1"/>
+    <!--   Child Menu  -->
+    <menuitem name="posts" id="postssub_menu" action="action_custom_posts" parent="scholar_root" sequence="1"/>
+
+
+
+</odoo>

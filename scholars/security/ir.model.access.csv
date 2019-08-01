@@ -1,0 +1,5 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_scholar_model,scholar,model_scholar,,1,1,1,1
+access_category_model,category,model_category,,1,1,1,1
+access_posts_model,posts,model_posts,,1,1,1,1
+
