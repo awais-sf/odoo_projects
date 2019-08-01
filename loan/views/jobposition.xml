@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+
+	<!-- Tree View of Teacher_Course-->
+	<record id="job_position_tree_view" model="ir.ui.view">
+		<field name="name">job_position_tree_view</field>
+		<field name="model">job.position</field>
+		<field name="arch" type="xml">
+			<tree string="Header" >
+			
+			
+				<field name="name"/>
+				<field name="department"/>
+				<field name="newemploye"/>
+				<field name="jobdescription"/>
+				
+				
+			</tree>
+		</field>
+	</record>
+ 
+	<!-- Form View Of teacher course-->
+    <record id="job_position_form_view" model="ir.ui.view">
+        <field name="name">job.position.form.view</field>
+        <field name="model">job.position</field>
+        <field name="arch" type="xml">
+            <form>
+            	<sheet>
+            	<group>
+            	<group>
+            	   <field name="name"/>
+            	</group>
+            	    
+				    
+            	</group>
+            	<group col="4">
+            	    <field name="department"/>
+				    <field name="newemploye"/>
+				    <field name="jobdescription"/>
+				    </group>
+	             </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!--   Define custom action -->
+
+    <record id="action_job_position" model="ir.actions.act_window">
+        <field name="name">job.position</field>
+        <field name="res_model">job.position</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="job_position_tree_view">
+                Click here to create new item !
+            </p>
+        </field>
+    </record>
+ 
+    <!--   Child Menu  -->
+   
+    <menuitem name="job" id="jobsub_menu" action="action_job_position" parent="loan" sequence="7"/>
+
+</odoo>

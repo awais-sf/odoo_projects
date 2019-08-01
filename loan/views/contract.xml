@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+
+	
+	<record id="contract_tree_view" model="ir.ui.view">
+		<field name="name">contract_tree_view</field>
+		<field name="model">contract</field>
+		<field name="arch" type="xml">
+			<tree string="Header" >
+			
+			
+				<field name="contractreference"/>
+				<field name="employee"/>
+				
+				
+			</tree>
+		</field>
+	</record>
+ 
+	
+    <record id="contract_form_view" model="ir.ui.view">
+        <field name="name">contract.form.view</field>
+        <field name="model">contract</field>
+        <field name="arch" type="xml">
+            <form>
+            
+           
+            	<sheet>
+            	<group>
+            	<field name="contractreference" />
+            	</group>
+            	<group col="4">
+            	       
+	                   <field name="employee"/>
+	                   <field name="employeecategory"/>
+	                   <field name="salarysturcture"/>
+	                   <field name="department"/>
+	                   <field name="jobposition"/>
+            	    </group>
+            	
+            	<notebook>
+            	 <page string="Contract Details ">
+            	    <group col="4">
+            	       <field name="startdate"/>
+	                   <field name="enddate"/>
+	                   <field name="endtrialperiod"/>
+	                   <field name="workingscheduling"/>
+	                   <field name="schedulingpay"/>
+            	    </group>
+            	    <field name="notes"/>
+            	    
+            	 </page>
+            	 
+            	 <page string="Salary Information">
+            	     
+            	    <group col="4">
+            	        
+	                    
+	                    <field name="wage"/>
+	                    
+            	    </group>
+            	   
+            	 </page>
+            	 
+            	 
+            
+            	
+            	</notebook>
+	           
+	             </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!--   Define custom action -->
+
+    <record id="action_contract" model="ir.actions.act_window">
+        <field name="name">contract</field>
+        <field name="res_model">contract</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="contract_tree_view">
+                Click here to create new item !
+            </p>
+        </field>
+    </record>
+ 
+    <!--   Child Menu  -->
+    <menuitem name="contracts" id="consub_menu" action="action_contract" parent="loan" sequence="3"/>
+
+</odoo>

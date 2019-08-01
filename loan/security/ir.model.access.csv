@@ -1,0 +1,7 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_employe_model,employe,model_employe,,1,1,1,1
+access_contract_model,contract,model_contract,,1,1,1,1
+access_loan_type_model,loan type,model_loan_type,,1,1,1,1
+access_emp_loan_model,emp_loan,model_emp_loan,,1,1,1,1
+access_department_model,department,model_department,,1,1,1,1
+access_job_position_model,job position,model_job_position,,1,1,1,1

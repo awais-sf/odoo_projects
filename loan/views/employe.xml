@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+
+	<!-- Tree View of Teacher_Course-->
+	<record id="employe_tree_view" model="ir.ui.view">
+		<field name="name">employe_tree_view</field>
+		<field name="model">employe</field>
+		<field name="arch" type="xml">
+			<tree string="Header" >
+			
+			
+				<field name="name"/>
+				<field name="type"/>
+				
+				
+			</tree>
+		</field>
+	</record>
+ 
+	<!-- Form View Of teacher course-->
+    <record id="employe_form_view" model="ir.ui.view">
+        <field name="name">employe.form.view</field>
+        <field name="model">employe</field>
+        <field name="arch" type="xml">
+            <form>
+            
+           
+            	<sheet>
+            	<group>
+            	<field name="image_medium" widget="image" class="oe_avatar" />
+            	<field name="name" placeholder="Ex name : Turki"/>
+            	</group>
+            	<notebook>
+            	 <page string="work Information">
+            	    <group col="4">
+            	       
+	                   <field name="type"/>
+	                   <field name="workaddress"/>
+	                   <field name="worklocation"/>
+	                   <field name="workemail"/>
+	                   <field name="workphone"/>
+            	    </group>
+            	    <group col="4">
+            	       
+	                   <field name="department"/>
+	                   <field name="jobposition"/>
+	                   <field name="jobtitle"/>
+	                   <field name="manager"/>
+	                   <field name="coach"/>
+            	    </group>
+            	    
+            	 </page>
+            	 
+            	 <page string="Private Information">
+            	     <group col="4">
+            	       <field name="nationality"/>
+	                   <field name="identification_no"/>
+	                   <field name="passport_no"/>
+	                   <field name="bankaccount_no"/>
+            	    </group>
+            	    <group string="contact info" col="4">
+            	        <field name="privateaddress"/>
+	                    <field name="emergencycontact"/>
+	                    <field name="emergencyphone"/>
+	                    <field name="kmhomework"/>
+            	    </group>
+            	    <group col="4" string="status">
+            	        <field name="gender"/>
+	                    <field name="matrialstatus"/>
+	                    <field name="nochildren"/> 
+            	    </group>
+            	    <group col="4">
+            	    <field name="dateofbirth"/>
+	                <field name="placeofbirth"/>
+	                <field name="countryofbirth"/>
+            	    
+            	    </group>
+            	    <group col="4">
+            	    <field name="visano"/>
+	                <field name="workprmitno"/>
+	                <field name="visaexpirydate"/>
+            	    </group>
+            	    <group col="4">
+            	      <field name="certificatelevel"/>
+	                <field name="fieldofstudy"/>
+	                <field name="school"/>
+            	    
+            	    </group>
+            	  <field name="employedoc"/>
+	                <field name="addnotes"/>
+            	 </page>
+            	 
+            	 
+            
+            	
+            	</notebook>
+	           
+	             </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!--   Define custom action -->
+
+    <record id="action_employe" model="ir.actions.act_window">
+        <field name="name">employe</field>
+        <field name="res_model">employe</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="employe_tree_view">
+                Click here to create new item !
+            </p>
+        </field>
+    </record>
+ 
+    <!--   Child Menu  -->
+    <menuitem name="loan" id="loan" sequence="1"/>
+    <menuitem name="Employe" id="loansub_menu" action="action_employe" parent="loan" sequence="2"/>
+
+</odoo>

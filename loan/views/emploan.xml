@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+	<record id="loan_type_tree_view" model="ir.ui.view">
+		<field name="name">loan_type_tree_view</field>
+		<field name="model">loan.type</field>
+		<field name="arch" type="xml">
+			<tree string="Header" >
+				<field name="name"/>
+				<field name="description"/>	
+			</tree>
+		</field>
+	</record>
+ 
+	
+    <record id="loan_type_form_view" model="ir.ui.view">
+        <field name="name">loan.type.form.view</field>
+        <field name="model">loan.type</field>
+        <field name="arch" type="xml">
+            <form>
+            	<sheet>
+            	<group>
+            	    <field name="name" />
+            	    <field name="description"/>
+            	</group>
+	             </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!--   Define custom action -->
+
+    <record id="action_loan_type" model="ir.actions.act_window">
+        <field name="name">loan.type</field>
+        <field name="res_model">loan.type</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="loan_type_tree_view">
+                Click here to create new item !
+            </p>
+        </field>
+    </record>
+ 
+    <!--   Child Menu  -->
+    <menuitem name="loan type" id="Loansub_menu" action="action_loan_type" parent="loan" sequence="4"/>
+    
+    
+    
+    <!-- employee   loan  -->
+    
+  
+
+	
+	<record id="emp_loan_tree_view" model="ir.ui.view">
+		<field name="name">emp_loan_tree_view</field>
+		<field name="model">emp.loan</field>
+		<field name="arch" type="xml">
+			<tree string="Header" >
+			
+			
+				<field name="employee"/>
+				<field name="department"/>
+				<field name="jobposition"/>
+				<field name="loantype"/>
+				<field name="amount"/>
+				<field name="tenure"/>
+				
+			</tree>
+		</field>
+	</record>
+ 
+	
+    <record id="emp_loan_form_view" model="ir.ui.view">
+        <field name="name">cemp.loan.form.view</field>
+        <field name="model">emp.loan</field>
+        <field name="arch" type="xml">
+            <form>
+            
+           
+            	<sheet>
+            	
+            	<group col="4">
+            	       
+	                   <field name="employee"/>
+	                   <field name="department"/>
+	                   <field name="jobposition"/>
+	                   
+            	    </group>
+            	
+            	<notebook>
+            	 <page string="Loan Details ">
+            	    <group col="4">
+            	       <field name="loantype"/>
+	                   <field name="amount"/>
+	                   <field name="tenure"/>
+	                   
+            	    </group>
+            	    <field name="descripton"/>
+            	    
+            	 </page>
+            	 
+            	 <page string="Terms and Condition">
+            	     
+            	    <group> 
+	                    <field name="terms"/> 
+            	    </group>
+            	   
+            	 </page>
+            	 
+            	 
+            
+            	
+            	</notebook>
+	           
+	             </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!--   Define custom action -->
+
+    <record id="action_emp_loan" model="ir.actions.act_window">
+        <field name="name">emp.loan</field>
+        <field name="res_model">emp.loan</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="emp_loan_tree_view">
+                Click here to create new item !
+            </p>
+        </field>
+    </record>
+ 
+    <!--   Child Menu  -->
+    <menuitem name="Employe Loan" id="emploansub_menu" action="action_emp_loan" parent="loan" sequence="5"/>
+
+
+
+
+
+
+</odoo>

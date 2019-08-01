@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+     <record id="loan_wizard_view" model="ir.ui.view">
+       <field name="name">loan.wizard.view</field>
+        <field name="model">sale.wizard</field>
+        <field name="arch" type="xml">
+           <form>
+            	<sheet>
+		             <group>
+		                <field name="partner_id" />
+		             </group>
+		             
+	             </sheet>
+	             <footer>
+	             <button name="set_partner_id" string="update partner" class="oe_right oe_highlight" type="object"/>
+	             <button string="cancel" class="oe_right" special="cancel"/>
+	             </footer>
+            </form>
+       </field>
+    </record>
+    
+       
+      
+     <record id="action_loan_wizard_view" model="ir.actions.act_window">
+        <field name="name">loan.wizard.view</field>
+        <field name="res_model">sale.wizard</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+        <field name="search_view_id" ref="loan_wizard_view"/>
+    </record>
+    
+    
+   <menuitem id="custom_sub_menu" action="loan_wizard_view" name="loan" parent="loan"/>
+ 
+	<act_window 
+			id="loan_wizard_view"
+			name="loan"
+			res_model="sale.wizard"
+			src_model="res.partner"
+			view_mode="form"
+			target="loan"
+			/>
+
+
+</odoo>

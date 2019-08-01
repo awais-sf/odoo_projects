@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+	<record id="department_tree_view" model="ir.ui.view">
+		<field name="name">department_tree_view</field>
+		<field name="model">department</field>
+		<field name="arch" type="xml">
+			<tree string="Header" >
+				<field name="name"/>
+				<field name="manager"/>	
+			</tree>
+		</field>
+	</record>
+ 
+	
+    <record id="department_form_view" model="ir.ui.view">
+        <field name="name">department.form.view</field>
+        <field name="model">department</field>
+        <field name="arch" type="xml">
+            <form>
+            	<sheet>
+            	<group>
+            	<group>
+            	    <field name="name" />
+            	    </group>
+            	    <group>
+            	    <field name="manager"/>
+            	    </group>
+            	</group>
+	             </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!--   Define custom action -->
+
+    <record id="action_department" model="ir.actions.act_window">
+        <field name="name">department</field>
+        <field name="res_model">department</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="department_tree_view">
+                Click here to create new item !
+            </p>
+        </field>
+    </record>
+ 
+    <!--   Child Menu  -->
+    <menuitem name="department" id="deptsub_menu" action="action_department" parent="loan" sequence="5"/>
+    
+    
+    </odoo>
