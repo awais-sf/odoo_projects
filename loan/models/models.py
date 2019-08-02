@@ -52,6 +52,8 @@ class Employe(models.Model):
     employedoc = fields.Char("Employe Document")
     addnotes = fields.Char("Additional Notes")
     
+    passprt_no = fields.Char("passport Number")
+    
     
 class Contract(models.Model):
     _name = 'contract'
