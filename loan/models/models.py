@@ -64,7 +64,7 @@ class Contract(models.Model):
     salarysturcture = fields.Char("structure")       
     department = fields.Char()
     jobposition = fields.Char()
-    startdfdate = fields.Date("Start Date")
+    
     startdate = fields.Date("Start Date")
     enddate = fields.Date("End Date")
     endtrialperiod = fields.Date("End trial period")
@@ -81,7 +81,6 @@ class Contract(models.Model):
         for rec in self:
             rec.department=rec.employee.department.name
             rec.jobposition=rec.employee.jobposition.name
-         print("Hello World")
     
     
 class Loan_type(models.Model):
