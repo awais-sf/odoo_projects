@@ -53,6 +53,7 @@ class Employe(models.Model):
     addnotes = fields.Char("Additional Notes")
     
     passprt_no = fields.Char("passport Number")
+    passpro = fields.Char("passport Number")
     
     
 class Contract(models.Model):

@@ -14,7 +14,7 @@
     'website': "http://www.yourcompany.com",
 
     'category': 'web',
-    'version': '0.1',
+    'version': '0.5',
 
     'depends': [],
 
