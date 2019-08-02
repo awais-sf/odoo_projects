@@ -81,6 +81,7 @@ class Contract(models.Model):
         for rec in self:
             rec.department=rec.employee.department.name
             rec.jobposition=rec.employee.jobposition.name
+         print("Hello World")
     
     
 class Loan_type(models.Model):
