@@ -1,0 +1,107 @@
+<odoo>
+  <data>
+
+    
+    <record model="ir.ui.view" id="sale_view_order_form_extend">
+            <field name="name">Sale Order</field>
+            <field name="model">sale.order</field>
+            <field name="inherit_id" ref="sale.view_order_form"/>
+            <field name="arch" type="xml">
+                <data>
+                    
+                    <field name="sale_order_template_id" position="attributes">
+                        <attribute name="invisible">True</attribute>
+                    </field>
+                    <field name="payment_term_id" position="attributes">
+                        <attribute name="invisible">True</attribute>
+                    </field>
+                    
+                </data>
+            </field>
+        </record>
+        
+    <record model="ir.ui.view" id="sale_order_view_inherit">
+            <field name="name">sale order 1</field>
+            <field name="model">sale.order</field>
+            <field name="inherit_id" ref="sale.view_order_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='order_line']/tree//field[@name='product_id']" position="after">
+                    <field name="priority"/>
+                </xpath>
+            </field>
+    </record>
+    
+    <record model="ir.ui.view" id="account_invoice_view_inherit">
+            <field name="name">account invoice</field>
+            <field name="model">account.invoice</field>
+            <field name="inherit_id" ref="account.invoice_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='invoice_line_ids']/tree//field[@name='product_id']" position="after">
+                    <field name="priority"/>
+                </xpath>
+            </field>
+            
+            
+
+
+    </record>
+    <template id="invoice_sale_report_extend" inherit_id="account.report_invoice_document">
+          <xpath expr="//table[@name='invoice_line_table']//thead//th[1]" position="inside">
+                <th>priority</th>
+            </xpath>
+            <xpath expr="//t[@name='account_invoice_line_accountable']//td[1]" position="inside">
+                <td><span t-field="line.priority"/></td>
+            </xpath>
+            <xpath expr="//table[@name='invoice_line_table']//thead//th[1]" position="replace">
+                <th>Name</th>
+            </xpath>
+            <xpath expr="//div[@id='qrcode']" position="after">
+                <br></br>
+                <p>thanks for shopping</p>
+            </xpath>
+            <xpath expr="//div[@id='total']//div//table" position="inside">
+                <tr>
+                    <td><strong>Discount 5%</strong></td>
+                    <td class="text-right"><strong>1000</strong></td>
+                </tr>
+            </xpath>
+            
+    </template>
+
+
+    <template id="sale_order_report_extend" inherit_id="sale.report_saleorder_document">
+          <xpath expr="//div[@class='page']//h2" position="after">
+                <h2>Header 2</h2>
+            </xpath>
+            <xpath expr="//div[@name='payment_term']" position="after">
+               <div name="Create_by"  class="col-auto mw-100 mb-2">
+                     <strong>Creatrd By :</strong>
+                    <p class="m-0">Awais Ali khan</p>
+                </div>
+                   
+            </xpath>
+            
+            <xpath expr="//div[@class='page']//table//thead//th[2]" position="after">
+                <th class="text-right">Name</th>
+            </xpath>
+           <xpath expr="//div[@class='page']//table//tbody//td[2]" position="after">
+                <td class="text-right">Shoping</td>
+            </xpath>
+            
+         <!--    <xpath expr="//div[@id='total']//div//table" position="inside">
+                <tr>
+                    <td><strong>Discount 5%</strong></td>
+                    <td class="text-right"><strong>1000</strong></td>
+                </tr>
+            </xpath>
+            -->
+            
+    </template>
+  
+
+
+
+
+
+  </data>
+</odoo>
